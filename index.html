@@ -1,43 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Para Angela ❤️</title>
-  <style>
-    body {
-      background: linear-gradient(to right, #ff758c, #ff7eb3);
-      color: white;
-      text-align: center;
-      font-family: Arial, sans-serif;
-      padding-top: 100px;
-    }
-    h1 {
-      font-size: 40px;
-    }
-    p {
-      font-size: 20px;
-      max-width: 600px;
-      margin: auto;
-    }
-    button {
-      background-color: white;
-      color: #ff4f81;
-      border: none;
-      padding: 10px 20px;
-      font-size: 18px;
-      margin-top: 20px;
-      border-radius: 20px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Angela ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(-45deg, #ff4f81, #ff85a2, #ffb6d9, #ffcce6);
+    background-size: 400% 400%;
+    animation: fondo 12s ease infinite;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    color: white;
+    overflow-x: hidden;
+}
+
+@keyframes fondo {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+h1 {
+    font-size: 60px;
+    margin-top: 70px;
+    text-shadow: 0 0 20px rgba(255,255,255,0.8);
+    animation: aparecer 2s ease-in-out;
+}
+
+p {
+    font-size: 30px;
+    max-width: 850px;
+    margin: 25px auto;
+    line-height: 1.6;
+    animation: aparecer 3s ease-in-out;
+}
+
+button {
+    background-color: white;
+    color: #ff4f81;
+    border: none;
+    padding: 18px 35px;
+    font-size: 22px;
+    margin-top: 30px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: 0.4s;
+    box-shadow: 0 0 20px rgba(255,255,255,0.7);
+}
+
+button:hover {
+    transform: scale(1.15);
+    background-color: #ffe6f0;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.corazon {
+    position: fixed;
+    bottom: -20px;
+    font-size: 25px;
+    animation: subir 6s linear infinite;
+}
+
+@keyframes subir {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+.secreto {
+    display: none;
+    font-size: 34px;
+    margin-top: 40px;
+    padding: 20px;
+    animation: aparecer 2s ease-in-out;
+}
+
+.firma {
+    margin-top: 60px;
+    font-size: 28px;
+    font-weight: bold;
+}
+</style>
 </head>
+
 <body>
-  <h1>Para ti, Angela ❤️</h1>
-  <p>
-    Desde que llegaste a mi vida, todo se siente diferente.
-    Gracias por existir, por tu sonrisa y por cada momento.
-    Esto es solo una pequeña muestra de lo especial que eres para mí.
-  </p>
-  <button onclick="alert('Siempre voy a estar para ti ❤️')">
-    Presiona aquí
-  </button>
+
+<h1>Para Angela ❤️</h1>
+
+<p>
+Desde que llegaste a mi vida, todo cambió.  
+Tu sonrisa ilumina mis días y tu mirada me da paz.  
+No eres solo alguien especial… eres mi persona favorita.
+</p>
+
+<p>
+Si el mundo se vuelve difícil, quiero ser tu refugio.  
+Si un día dudas de ti, quiero recordarte lo increíble que eres.  
+Y si alguna vez te sientes sola, quiero que recuerdes que aquí estoy… siempre.
+</p>
+
+<button onclick="mostrarSorpresa()">Haz clic aquí mi amor 💖</button>
+
+<div class="secreto" id="mensajeSecreto">
+💌  
+No sé qué nos depare el futuro,  
+pero sí sé que quiero caminarlo contigo.  
+Eres mi casualidad más bonita,  
+mi pensamiento favorito,  
+y el latido más fuerte de mi corazón. ❤️
+</div>
+
+<div class="firma">
+Con todo mi amor 💞
+</div>
+
+<br><br>
+
+<button onclick="reproducirMusica()">🎵 Escucha esto mientras lees</button>
+
+<audio id="musica" loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_9c5e0b5b75.mp3?filename=romantic-piano-11086.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function mostrarSorpresa() {
+    document.getElementById("mensajeSecreto").style.display = "block";
+}
+
+function reproducirMusica() {
+    document.getElementById("musica").play();
+}
+
+function crearCorazon() {
+    const corazon = document.createElement("div");
+    corazon.classList.add("corazon");
+    corazon.innerHTML = "❤️";
+    corazon.style.left = Math.random() * 100 + "vw";
+    corazon.style.fontSize = Math.random() * 25 + 20 + "px";
+    corazon.style.animationDuration = Math.random() * 3 + 3 + "s";
+    document.body.appendChild(corazon);
+
+    setTimeout(() => {
+        corazon.remove();
+    }, 6000);
+}
+
+setInterval(crearCorazon, 300);
+</script>
+
 </body>
 </html>
